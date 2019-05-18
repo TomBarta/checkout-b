@@ -1,0 +1,24 @@
+service:
+  name: checkout-b
+
+provider:
+  name: cloudflare
+  config:
+    accountId: ${env:CLOUDFLARE_ACCOUNT_ID} 
+    zoneId: ${env:CLOUDFLARE_ZONE_ID} 
+plugins:
+  - serverless-cloudflare-workers
+
+functions:
+  hello:
+    name: hello
+    # Cloudflare allows only one route on Free accounts, so I'm sending every call through this file.
+    # In an enterprise environment, we would want to have cloudflare filter the request and call the appropriate function.
+    script: index
+    events:
+      - http:
+          url: https://*.checkout-b.com/*
+          method: GET
+          headers:
+            foo: bar
+            x-client-data: value
