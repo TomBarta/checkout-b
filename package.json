@@ -5,7 +5,7 @@
   "main": "index.js",
   "privatte": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "webpack && sls deploy"
   },
   "author": "cloudflare",
   "license": "MIT",

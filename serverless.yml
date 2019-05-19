@@ -14,7 +14,7 @@ functions:
     name: hello
     # Cloudflare allows only one route on Free accounts, so I'm sending every call through this file.
     # In an enterprise environment, we would want to have cloudflare filter the request and call the appropriate function.
-    script: index
+    script: ./dist/worker.js
     events:
       - http:
           url: https://*.checkout-b.com/*
