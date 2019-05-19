@@ -5,7 +5,9 @@
   "main": "index.js",
   "privatte": true,
   "scripts": {
-    "deploy": "webpack && sls deploy"
+    "clean": "rm -r .serverless dist",
+    "deploy": "webpack && sls deploy",
+    "deploy-and-clean": "yarn deploy && yarn clean"
   },
   "author": "cloudflare",
   "license": "MIT",

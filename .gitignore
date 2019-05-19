@@ -3,6 +3,7 @@ node_modules
 
 # Local env vars
 .envrc-personal
+yarn-error.log
 
 # Build artifacts
 .serverless
