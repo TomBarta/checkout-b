@@ -3,3 +3,6 @@ node_modules
 
 # Local env vars
 .envrc-personal
+
+# Build artifacts
+.serverless
