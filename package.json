@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "Cloudflare serverless deployment for self-serve customers",
   "main": "index.js",
+  "privatte": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "cloudflare",
   "license": "MIT",
   "devDependencies": {
-    "serverless-cloudflare-workers": "1.0.5"
+    "serverless-cloudflare-workers": "1.0.5",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
   }
 }
