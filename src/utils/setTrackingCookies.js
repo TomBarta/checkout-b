@@ -1,9 +1,12 @@
-export async function setTrackingCookies(originalURL, response) {
-  console.log(originalURL.search)
-  originalURL.searchParams.forEach((value, key) => {
-    console.log('key value: ', `${key}=${value}`)
-    response.headers.append('Set-Cookie', `${key}=${value}; Expires=${expireIn10Years()}; Secure; Path='/'`)
-  });
+export function setTrackingCookies(url, response) {
+  let res = new Response(response.body, response)
+
+  // The Request object's .url attribute does not have a .search attribute, so we just parse it.
+  const trackings = url.split('?')[1].split('&');
+  trackings.forEach(tracking => {
+    res.headers.append('Set-Cookie', `${tracking}; Expires=${expireIn10Years()}; Secure; Path='/'`)
+  })
+  return res;
 }
 
 function expireIn10Years() {
